@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="StreamViewer">
+<head>
+    <title>Stream Viewer</title>
+</head>
+<body>
+    <div ng-controller="StreamList" style="width:500px;">
+        <div>{{streams.length}} total streams found.</div>
+        <ul>
+            <li ng-repeat="stream in streams">
+                {{$index + 1}} - {{stream.name}}
+            </li>
+        </ul>
+    </div>
+    <script src="/js/libs/angular.min.js"></script>
+    <script src="/js/controllers.js"></script>
+</body>
+</html>
