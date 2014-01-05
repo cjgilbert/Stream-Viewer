@@ -1,8 +1,6 @@
 var streamViewer = angular.module('StreamViewer', ['streamViewer.services']);
 
-streamViewer.controller('StreamList', function($scope) {
-    $scope.streams = [
-        {'name': 'test1'},
-        {'name': 'test2'}
-    ];
-});
+streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', function($scope, twitch) {
+    $scope.games = ['League of Legends', 'World of Warcraft: Mists of Pandaria'];
+    $scope.streams = twitch.getStreams($scope.games);
+}]);

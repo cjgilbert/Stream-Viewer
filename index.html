@@ -4,7 +4,7 @@
     <title>Stream Viewer</title>
 </head>
 <body>
-    <div ng-controller="StreamList" style="width:500px;">
+    <div ng-controller="StreamListCtrl" style="width:500px;">
         <div>{{streams.length}} total streams found.</div>
         <ul>
             <li ng-repeat="stream in streams">
@@ -13,6 +13,7 @@
         </ul>
     </div>
     <script src="/js/libs/angular.min.js"></script>
+    <script src="/js/services.js"></script>
     <script src="/js/controllers.js"></script>
 </body>
 </html>
