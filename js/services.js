@@ -6,13 +6,14 @@ angular.module('streamViewer.services', [], function($provide) {
                 for (var i = 0; i < games.length; i++) {
                     $http.get('https://api.twitch.tv/kraken/streams?game='+games[i])
                         .success(function(response) {
-                            console.log(response);
                             for (var j = 0; j < response.streams.length; j++) {
-                                streams.push({'name': response.streams[i].channel.name});
+                                streams.push({'name': response.streams[j].channel.name,
+                                    'viewers': response.streams[j].viewers,
+                                    'game': response.streams[j].game}
+                                );
                             }
                         });
                 }
-
                 return streams;
             }
         }

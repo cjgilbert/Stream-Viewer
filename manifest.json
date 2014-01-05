@@ -4,11 +4,12 @@
     "manifest_version": 2,
     "description": "Streams from multiple games in one place.",
     "browser_action": {
-        "default_icon": "img/icon/48.png",
+        "default_icon": "img/icon/twitch-icon.png",
         "default_popup": "index.html",
         "default_title": "StreamViewer"
     },
     "permissions": [
-        "*://*/*"
+        "*://*/*",
+        "tabs"
     ]
 }
