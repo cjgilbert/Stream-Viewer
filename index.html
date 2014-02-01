@@ -2,15 +2,22 @@
 <html ng-app="StreamViewer">
 <head>
     <title>Stream Viewer</title>
+    <link rel="stylesheet" href="/css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/libs/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/viewer.css">
 </head>
 <body>
-    <div ng-controller="StreamListCtrl" style="width:400px;">
-        <div>{{streams.length}} total streams found.</div>
-        <table style="width:300px; margin:auto;">
-            <tr ng-repeat="stream in streams">
-                <td style="width:10%"><img src="{{getLogo(stream.game)}}" style="width:20px; vertical-align: middle; padding-top:2px;"/></td>
-                <td style="width:60%"><a ng-href="http://www.twitch.tv/{{stream.name}}/popout" title="http://www.twitch.tv/{{stream.name}}/popout" target="_blank">{{stream.name}}</a></td>
-                <td style="width:30%">{{stream.viewers}}</td>
+    <div ng-controller="StreamListCtrl" style="width:400px; padding:0 5px;">
+        <table class="table table-condensed">
+            <tr>
+                <th class="icon-col">{{streams.length}}</th>
+                <th class="name-col">Name</th>
+                <th class="viewer-col">Viewers</th>
+            </tr>
+            <tr ng-repeat="stream in streams | orderBy:'viewers':true">
+                <td class="icon-col"><img src="{{getLogo(stream.game)}}" style="width:20px; vertical-align: middle; padding-top:2px;"/></td>
+                <td class="name-col"><a ng-href="http://www.twitch.tv/{{stream.name}}/popout" title="http://www.twitch.tv/{{stream.name}}/popout" target="_blank">{{stream.name}}</a></td>
+                <td class="viewer-col">{{stream.viewers}}</td>
             </tr>
         </table>
     </div>
@@ -18,5 +25,6 @@
     <script src="/js/libs/underscore-min.js"></script>
     <script src="/js/services.js"></script>
     <script src="/js/controllers.js"></script>
+    <script src="/js/libs/bootstrap.min.js"></script>
 </body>
 </html>
