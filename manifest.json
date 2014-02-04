@@ -1,12 +1,15 @@
 {
     "name": "Stream Viewer",
     "version": "0.1",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "description": "Streams from multiple games in one place.",
     "browser_action": {
         "default_icon": "img/icon/twitch-icon.png",
         "default_popup": "index.html",
         "default_title": "StreamViewer"
+    },
+    "icons": {
+        "128":"img/icon/twitch-icon.png"
     },
     "permissions": [
         "*://*/*",
