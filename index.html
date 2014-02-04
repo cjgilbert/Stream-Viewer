@@ -14,13 +14,14 @@
                 <th class="name-col">Name</th>
                 <th class="viewer-col">Viewers</th>
             </tr>
-            <tr ng-repeat="stream in streams | orderBy:'viewers':true">
-                <td class="icon-col"><img src="{{getLogo(stream.game)}}" style="width:20px; vertical-align: middle; padding-top:2px;"/></td>
+            <tr ng-repeat="stream in streams | orderBy:['-favorite','-viewers']">
+                <td class="icon-col"><img src="{{getLogo(stream.game)}}" class="game-logo" ng-click="toggleFavorite(stream)"/></td>
                 <td class="name-col"><a ng-href="http://www.twitch.tv/{{stream.name}}/popout" title="http://www.twitch.tv/{{stream.name}}/popout" target="_blank">{{stream.name}}</a></td>
                 <td class="viewer-col">{{stream.viewers}}</td>
             </tr>
         </table>
     </div>
+    <script src="/js/libs/jquery.min.js"></script>
     <script src="/js/libs/angular.min.js"></script>
     <script src="/js/libs/underscore-min.js"></script>
     <script src="/js/services.js"></script>
