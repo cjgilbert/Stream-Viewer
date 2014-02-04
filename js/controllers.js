@@ -12,11 +12,13 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', functi
     $scope.loadFavorites = function() {
         storage.load('favorites', function(result) {
             $scope.favorites = result.favorites;
-            for (var i = 0; i < $scope.streams.length; i++) {
-                if (1 === $scope.favorites[$scope.streams[i].name]) {
-                    $scope.$apply(function() {
-                        $scope.streams[i].favorite = 1;
-                    });
+            if ($scope.favorites) {
+                for (var i = 0; i < $scope.streams.length; i++) {
+                    if (1 === $scope.favorites[$scope.streams[i].name]) {
+                        $scope.$apply(function() {
+                            $scope.streams[i].favorite = 1;
+                        });
+                    }
                 }
             }
         });
@@ -25,6 +27,9 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', functi
     $scope.toggleFavorite = function(stream) {
         stream.favorite = (stream.favorite === 0) ? 1 : 0;
         if (stream.favorite === 1) {
+            if (!$scope.favorites) {
+                $scope.favorites = {};
+            }
             $scope.favorites[stream.name] = 1;
         } else {
             if ($scope.favorites[stream.name] = 1) {
@@ -32,10 +37,10 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', functi
             }
         }
         storage.save('favorites', $scope.favorites);
-    }
+    };
 
     $scope.logos = {};
-    $scope.favorites = [];
+    $scope.favorites = {};
     $scope.logos['World of Warcraft: Mists of Pandaria'] = "img/icon/wow-icon.png";
     $scope.logos['League of Legends'] = "img/icon/league.png";
     $scope.games = ['League of Legends', 'World of Warcraft: Mists of Pandaria'];

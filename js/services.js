@@ -25,10 +25,12 @@ angular.module('streamViewer.services', [], function($provide) {
             save: function(key, value) {
                 var obj = {};
                 obj[key] = value;
+                chrome.storage.sync.clear();
                 chrome.storage.sync.set(obj);
             },
             load: function(key, callback) {
                 chrome.storage.sync.get(key, function(result){
+                    console.log(result);
                     callback(result);
                 });
             }

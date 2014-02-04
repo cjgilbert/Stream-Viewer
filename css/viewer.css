@@ -1,9 +1,18 @@
+.fav-col {
+    width:10%;
+}
+
+.fav-icon {
+    cursor: pointer;
+    padding-top:3px;
+}
+
 .icon-col {
     width:10%;
 }
 
 .name-col {
-    width:60%;
+    width:50%;
 }
 
 .viewer-col {
@@ -14,6 +23,5 @@
     width:20px;
     vertical-align:middle;
     padding-top:2px;
-    cursor: pointer;
 }
 

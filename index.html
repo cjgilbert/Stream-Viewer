@@ -10,12 +10,16 @@
     <div ng-controller="StreamListCtrl" style="width:400px; padding:0 5px;">
         <table class="table table-condensed">
             <tr>
+                <th class="fav-col"><span class="glyphicon glyphicon-star-empty"></span></th>
                 <th class="icon-col">{{streams.length}}</th>
                 <th class="name-col">Name</th>
                 <th class="viewer-col">Viewers</th>
             </tr>
             <tr ng-repeat="stream in streams | orderBy:['-favorite','-viewers']">
-                <td class="icon-col"><img src="{{getLogo(stream.game)}}" class="game-logo" ng-click="toggleFavorite(stream)"/></td>
+                <td class="fav-col" ng-click="toggleFavorite(stream)">
+                    <span class="glyphicon fav-icon" ng-class="{1: 'glyphicon-star', 0: 'glyphicon-star-empty'}[stream.favorite]" ></span>
+                </td>
+                <td class="icon-col"><img src="{{getLogo(stream.game)}}" class="game-logo" /></td>
                 <td class="name-col"><a ng-href="http://www.twitch.tv/{{stream.name}}/popout" title="http://www.twitch.tv/{{stream.name}}/popout" target="_blank">{{stream.name}}</a></td>
                 <td class="viewer-col">{{stream.viewers}}</td>
             </tr>
