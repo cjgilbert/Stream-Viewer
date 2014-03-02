@@ -4,26 +4,51 @@
     <title>Stream Viewer</title>
     <link rel="stylesheet" href="/css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="/css/libs/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/libs/font-awesome.min.css">
     <link rel="stylesheet" href="/css/viewer.css">
 </head>
 <body>
-    <div ng-controller="StreamListCtrl" style="width:400px; padding:0 5px;">
-        <table class="table table-condensed">
-            <tr>
-                <th class="fav-col"><span class="glyphicon glyphicon-star-empty"></span></th>
-                <th class="icon-col">{{streams.length}}</th>
-                <th class="name-col">Name</th>
-                <th class="viewer-col">Viewers</th>
-            </tr>
-            <tr ng-repeat="stream in streams | orderBy:['-favorite','-viewers']">
-                <td class="fav-col" ng-click="toggleFavorite(stream)">
-                    <span class="glyphicon fav-icon" ng-class="{1: 'glyphicon-star', 0: 'glyphicon-star-empty'}[stream.favorite]" ></span>
-                </td>
-                <td class="icon-col"><img src="{{getLogo(stream.game)}}" class="game-logo" /></td>
-                <td class="name-col"><a ng-href="http://www.twitch.tv/{{stream.name}}/popout" title="http://www.twitch.tv/{{stream.name}}/popout" target="_blank">{{stream.name}}</a></td>
-                <td class="viewer-col">{{stream.viewers}}</td>
-            </tr>
-        </table>
+    <div ng-controller="StreamListCtrl" style="width:{{width}}px; padding:0 5px;">
+        <div class="fa fa-cog settings-cog" ng-click="toggleSettings()"></div>
+        <div ng-show="!settings">
+            <div class="streams-header">
+                Streams
+            </div>
+            <div class="viewers-header">
+                Viewers
+            </div>
+        </div>
+        <div class="content">
+            <table ng-show="!settings" class="table table-condensed">
+                <tr ng-repeat="stream in streams | orderBy:['-favorite','-viewers']">
+                    <td class="fav-col" ng-click="toggleFavorite(stream)">
+                        <span class="glyphicon fav-icon" ng-class="{1: 'glyphicon-star', 0: 'glyphicon-star-empty'}[stream.favorite]" ></span>
+                    </td>
+                    <td class="icon-col"><img src="{{getLogo(stream.game)}}" class="game-logo" /></td>
+                    <td class="name-col"><a ng-href="http://www.twitch.tv/{{stream.name}}/popout" title="http://www.twitch.tv/{{stream.name}}/popout" target="_blank">{{stream.name}}</a></td>
+                    <td class="viewer-col">{{stream.viewers}}</td>
+                </tr>
+            </table>
+            <h5 ng-show="!settings && (0 == games.length)" >Please select games to display from the settings menu!</h4>
+            <div ng-show="settings" class="settings">
+                Games To Display
+            </div>
+            <table ng-show="settings" class="table table-condensed" style="margin-bottom:10px;">
+                <tr ng-repeat="game in availableGames">
+                    <td class="icon-col">
+                        <img src="{{getLogo(game.name)}}" class="game-logo" />
+                    </td>
+                    <td class="game-col">
+                        {{game.name}}
+                    </td>
+                    <th class="check-col">
+                        <input type="checkbox" ng-checked="games.indexOf(game.name) != -1" ng-click="toggleGame(game.name)"/>
+                    </th>
+                </tr>
+            </table>
+            <button ng-show="settings" class="btn btn-primary btn-xs submit-button" ng-click="saveGames()">Save Changes</button>
+        </div>
+
     </div>
     <script src="/js/libs/jquery.min.js"></script>
     <script src="/js/libs/angular.min.js"></script>

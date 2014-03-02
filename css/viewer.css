@@ -3,8 +3,8 @@
 }
 
 .fav-icon {
-    cursor: pointer;
-    padding-top:3px;
+    cursor:pointer;
+    padding-top:4px;
 }
 
 .icon-col {
@@ -19,9 +19,60 @@
     width:30%;
 }
 
+.game-col {
+    width:80%;
+}
+
+.check-col {
+    width:10%;
+}
+
 .game-logo {
     width:20px;
     vertical-align:middle;
     padding-top:2px;
 }
 
+.streams-header {
+    float:left;
+    font-weight:bold;
+    height:25px;
+    padding-top:3px;
+}
+
+.viewers-header {
+    float:left;
+    font-weight:bold;
+    padding-left:210px;
+    padding-top:3px;
+}
+
+.settings-cog {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+
+.content {
+    clear:both;
+    margin-top:25px;
+    min-height: 500px;
+    max-height:500px;
+    overflow-y:scroll;
+}
+
+.settings {
+    font-weight:bold;
+    padding:5px;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+.submit-button {
+    float:right;
+    margin-right:15px;
+}

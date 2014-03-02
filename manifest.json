@@ -12,7 +12,7 @@
         "128":"img/icon/twitch-icon.png"
     },
     "permissions": [
-        "*://*/*",
+        "*://api.twitch.tv/*",
         "tabs",
         "storage"
     ]
