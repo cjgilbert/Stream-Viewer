@@ -6,7 +6,6 @@ var streamViewer = angular.module('StreamViewer', ['streamViewer.services'])
 
 streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$timeout', function($scope, twitch, storage, $timeout) {
     $scope.getLogo = function(game) {
-        console.log($scope.logos);
         return $scope.logos[game];
     };
 
@@ -18,7 +17,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
 
     $scope.loadGames = function() {
         storage.load('games', function(result) {
-            $scope.games = result.games;
+            $scope.games = (result.games) ? result.games : [];
             $scope.loadStreams();
         });
     };
