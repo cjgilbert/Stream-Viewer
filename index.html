@@ -36,13 +36,13 @@
             <table ng-show="settings" class="table table-condensed" style="margin-bottom:10px;">
                 <tr ng-repeat="game in availableGames">
                     <td class="icon-col">
-                        <img src="{{getLogo(game.name)}}" class="game-logo" />
+                        <img src="{{getLogo(game)}}" class="game-logo" />
                     </td>
                     <td class="game-col">
-                        {{game.name}}
+                        {{game}}
                     </td>
                     <th class="check-col">
-                        <input type="checkbox" ng-checked="games.indexOf(game.name) != -1" ng-click="toggleGame(game.name)"/>
+                        <input type="checkbox" ng-checked="games.indexOf(game) != -1" ng-click="toggleGame(game)"/>
                     </th>
                 </tr>
             </table>

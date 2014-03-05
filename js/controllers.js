@@ -18,6 +18,11 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.loadGames = function() {
         storage.load('games', function(result) {
             $scope.games = (result.games) ? result.games : [];
+            for (var i = 0; i < $scope.games.length; i++) {
+                if (-1 == $scope.availableGames.indexOf($scope.games[i])) {
+                    delete $scope.games[i];
+                }
+            }
             $scope.loadStreams();
         });
     };
@@ -87,20 +92,20 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.logos = {};
     $scope.games = {};
     $scope.availableGames = [
-        {'name': 'Call of Duty: Ghosts'},
-        {'name': 'Diablo 3'},
-        {'name': 'Hearthstone: Heroes of Warcraft'},
-        {'name': 'League of Legends'},
-        {'name': 'StarCraft II: Heart of the Swarm'},
-        {'name': 'The Elder Scrolls Online'},
-        {'name': 'World of Warcraft: Mists of Pandaria'}
+        'Call of Duty: Ghosts',
+        'Diablo III',
+        'Hearthstone: Heroes of Warcraft',
+        'League of Legends',
+        'StarCraft II: Heart of the Swarm',
+        'The Elder Scrolls Online',
+        'World of Warcraft: Mists of Pandaria'
     ];
     $scope.favorites = {};
     $scope.settings = false;
     $scope.width = 400;
     $scope.limit = 50;
     $scope.logos['Call of Duty: Ghosts'] = 'img/icon/cod-icon.png';
-    $scope.logos['Diablo 3'] = 'img/icon/diablo-icon.png';
+    $scope.logos['Diablo III'] = 'img/icon/diablo-icon.png';
     $scope.logos['Hearthstone: Heroes of Warcraft'] = 'img/icon/hearthstone-icon.png';
     $scope.logos['League of Legends'] = 'img/icon/league-icon.png';
     $scope.logos['StarCraft II: Heart of the Swarm'] = 'img/icon/hots-icon.png';
