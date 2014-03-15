@@ -98,11 +98,13 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.games = {};
     $scope.availableGames = [
         'Call of Duty: Ghosts',
+        'Dark Souls II',
         'Diablo III',
         'Hearthstone: Heroes of Warcraft',
         'League of Legends',
         'StarCraft II: Heart of the Swarm',
         'The Elder Scrolls Online',
+        'Titanfall',
         'World of Warcraft: Mists of Pandaria'
     ];
     $scope.favorites = {};
@@ -116,6 +118,8 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.logos['StarCraft II: Heart of the Swarm'] = 'img/icon/hots-icon.png';
     $scope.logos['The Elder Scrolls Online'] = 'img/icon/elderscrolls-icon.png';
     $scope.logos['World of Warcraft: Mists of Pandaria'] = '/img/icon/wow-icon.png';
+    $scope.logos['Titanfall'] = '/img/icon/titanfall-icon.png';
+    $scope.logos['Dark Souls II'] = '/img/icon/ds2-icon.png';
     $scope.games = [];
     $scope.loadGames();
 }]);
