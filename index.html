@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="content">
-            <table scroll-trigger="raiseLimit(25)" scroll-content=".content" ng-show="!settings" class="table table-condensed">
+            <table scroll-trigger="raiseOffset(limit)" scroll-content=".content" ng-show="!settings" class="table table-condensed">
                 <tr ng-repeat="stream in streams | orderBy:['-favorite','-viewers']">
                     <td class="fav-col" ng-click="toggleFavorite(stream)">
                         <span class="glyphicon fav-icon" ng-class="{1: 'glyphicon-star', 0: 'glyphicon-star-empty'}[stream.favorite]" ></span>
@@ -29,7 +29,7 @@
                     <td class="viewer-col">{{stream.viewers}}</td>
                 </tr>
             </table>
-            <h5 ng-show="!settings && (0 == games.length)" >Please select games to display from the settings menu!</h4>
+            <h5 ng-show="!settings && (0 == games.length)" >Please select games to display from the settings menu!</h5>
             <div ng-show="settings" class="settings">
                 Games To Display
             </div>

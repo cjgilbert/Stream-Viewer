@@ -36,15 +36,28 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
         }
     };
 
-    $scope.raiseLimit = function(val) {
-        $scope.limit += val;
+    $scope.raiseOffset = function(val) {
+        $scope.offset += val;
         $scope.loadStreams();
     };
 
     $scope.loadStreams = function() {
         if (0 < $scope.games.length) {
-            twitch.getStreams($scope.games, $scope.limit, function(response) {
-                $scope.streams = response;
+            twitch.getStreams($scope.games, $scope.limit, $scope.offset, function(response) {
+                if (!$scope.streams) {
+                    $scope.streams = [];
+                }
+                angular.forEach(response, function(responseVal, responseKey) {
+                    var exists = false;
+                    angular.forEach($scope.streams, function(val, key) {
+                        if (val.name === responseVal.name) {
+                            exists = true;
+                        }
+                    });
+                    if (!exists) {
+                        $scope.streams.push(responseVal);
+                    }
+                });
                 $scope.loadFavorites();
             });
         } else {
@@ -111,6 +124,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.settings = false;
     $scope.width = 400;
     $scope.limit = 50;
+    $scope.offset = 0;
     $scope.logos['Call of Duty: Ghosts'] = 'img/icon/cod-icon.png';
     $scope.logos['Diablo III'] = 'img/icon/diablo-icon.png';
     $scope.logos['Hearthstone: Heroes of Warcraft'] = 'img/icon/hearthstone-icon.png';
