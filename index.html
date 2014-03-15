@@ -20,7 +20,7 @@
         </div>
         <div class="content">
             <table scroll-trigger="raiseOffset(limit)" scroll-content=".content" ng-show="!settings" class="table table-condensed">
-                <tr ng-repeat="stream in streams | orderBy:['-favorite','-viewers']">
+                <tr ng-repeat="stream in streams | orderBy:['-favorite','-viewers','name']">
                     <td class="fav-col" ng-click="toggleFavorite(stream)">
                         <span class="glyphicon fav-icon" ng-class="{1: 'glyphicon-star', 0: 'glyphicon-star-empty'}[stream.favorite]" ></span>
                     </td>
