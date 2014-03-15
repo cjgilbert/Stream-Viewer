@@ -9,7 +9,7 @@ angular.module('streamViewer.services', [], function($provide) {
                     var promise = $http.get('https://api.twitch.tv/kraken/streams?game='+games[i]+'&limit='+gameLimit+'&offset='+offset)
                         .success(function(response) {
                             for (var j = 0; j < response.streams.length; j++) {
-                                streams.push({'name': response.streams[j].channel.display_name,
+                                streams.push({'name': response.streams[j].channel.name,
                                     'viewers': response.streams[j].viewers,
                                     'game': response.streams[j].game,
                                     'favorite': 0}
