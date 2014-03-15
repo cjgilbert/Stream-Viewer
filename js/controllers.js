@@ -44,9 +44,6 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.loadStreams = function() {
         if (0 < $scope.games.length) {
             twitch.getStreams($scope.games, $scope.limit, function(response) {
-                if (!$scope.streams) {
-                    $scope.streams = [];
-                }
                 $scope.streams = response;
                 $scope.loadFavorites();
             });
