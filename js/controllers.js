@@ -36,6 +36,11 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
         }
     };
 
+    $scope.raiseLimit = function(val) {
+        $scope.limit += val;
+        $scope.loadStreams();
+    };
+
     $scope.loadStreams = function() {
         if (0 < $scope.games.length) {
             twitch.getStreams($scope.games, $scope.limit, function(response) {
