@@ -19,12 +19,12 @@
             </div>
         </div>
         <div class="content">
-            <table ng-show="!settings" class="table table-condensed">
-                <tr scroll-trigger="raiseLimit(25)" treshold="50" ng-repeat="stream in streams | orderBy:['-favorite','-viewers']">
+            <table scroll-trigger="raiseLimit(25)" scroll-content=".content" ng-show="!settings" class="table table-condensed">
+                <tr ng-repeat="stream in streams | orderBy:['-favorite','-viewers']">
                     <td class="fav-col" ng-click="toggleFavorite(stream)">
                         <span class="glyphicon fav-icon" ng-class="{1: 'glyphicon-star', 0: 'glyphicon-star-empty'}[stream.favorite]" ></span>
                     </td>
-                    <td class="icon-col"><img src="{{getLogo(stream.game)}}" class="game-logo" /></td>
+                    <td class="icon-col"><img ng-src="{{getLogo(stream.game)}}" class="game-logo" /></td>
                     <td class="name-col"><a ng-href="http://www.twitch.tv/{{stream.name}}/popout" title="http://www.twitch.tv/{{stream.name}}/popout" target="_blank">{{stream.name}}</a></td>
                     <td class="viewer-col">{{stream.viewers}}</td>
                 </tr>
@@ -36,7 +36,7 @@
             <table ng-show="settings" class="table table-condensed" style="margin-bottom:10px;">
                 <tr ng-repeat="game in availableGames">
                     <td class="icon-col">
-                        <img src="{{getLogo(game)}}" class="game-logo" />
+                        <img ng-src="{{getLogo(game)}}" class="game-logo" />
                     </td>
                     <td class="game-col">
                         {{game}}
@@ -49,7 +49,6 @@
             <button ng-show="settings" class="btn btn-primary btn-xs submit-button" ng-click="saveGames()">Save Changes</button>
         </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/js/libs/jquery.min.js"></script>
     <script src="/js/libs/angular.min.js"></script>
     <script src="/js/libs/underscore-min.js"></script>

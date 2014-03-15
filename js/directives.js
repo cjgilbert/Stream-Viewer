@@ -1,14 +1,11 @@
-streamViewer.directive('scrollTrigger', function($window) {
+streamViewer.directive('scrollTrigger', function() {
     return {
         link : function(scope, element, attrs) {
-            var offset = parseInt(attrs.threshold) || 0;
-            var e = jQuery(element[0]);
-            var doc = jQuery(document);
-            console.log(doc);
-            angular.element(document).bind('scroll', function() {
-                console.log(doc.scrollTop() + $window.innerHeight + offset > e.offset().top);
-                if (doc.scrollTop() + $window.innerHeight + offset > e.offset().top) {
+            var content = jQuery(attrs.scrollContent);
+            angular.element(attrs.scrollContent).bind('scroll', function() {
+                if (30 > content[0].scrollHeight - (content.height() + content.scrollTop())) {
                     scope.$apply(attrs.scrollTrigger);
+                    content.scrollTop(0);
                 }
             });
         }
