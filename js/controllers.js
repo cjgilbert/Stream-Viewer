@@ -7,7 +7,11 @@ var streamViewer = angular.module('StreamViewer', ['streamViewer.services'])
 
 streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$timeout', function($scope, twitch, storage, $timeout) {
     $scope.getLogo = function(game) {
-        return $scope.logos[game];
+        if ($scope.logos[game]) {
+            return $scope.logos[game];
+        } else {
+            return $scope.logos['Unknown'];
+        }
     };
 
     $scope.saveGames = function() {
@@ -37,8 +41,8 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
         }
     };
 
-    $scope.raiseOffset = function(val) {
-        $scope.offset += val;
+    $scope.raiseOffset = function() {
+        $scope.offset++;
         $scope.loadStreams();
     };
 
@@ -135,6 +139,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.logos['World of Warcraft: Mists of Pandaria'] = '/img/icon/wow-icon.png';
     $scope.logos['Titanfall'] = '/img/icon/titanfall-icon.png';
     $scope.logos['Dark Souls II'] = '/img/icon/ds2-icon.png';
+    $scope.logos['Unknown'] = '/img/icon/twitch-icon.png';
     $scope.games = [];
     $scope.loadGames();
 }]);
