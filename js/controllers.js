@@ -16,6 +16,8 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
 
     $scope.saveGames = function() {
         storage.save('games', $scope.games);
+        $scope.offset = 0;
+        $scope.streams = [];
         $scope.loadStreams();
         $scope.settings = false;
     };
