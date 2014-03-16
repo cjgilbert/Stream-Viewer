@@ -1,3 +1,6 @@
+/**
+ * Directive to trigger when user scrolls within a certain distance from the bottom of the element
+ */
 streamViewer.directive('scrollTrigger', function() {
     return {
         link : function(scope, element, attrs) {

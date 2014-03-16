@@ -1,4 +1,7 @@
 angular.module('streamViewer.services', [], function($provide) {
+    /**
+     * Twitch service for returning lists of streams.
+     */
     $provide.factory('twitch', ['$http', '$q', function($http, $q){
         return {
             getStreams: function(games, limit, offset, callback) {
@@ -25,6 +28,9 @@ angular.module('streamViewer.services', [], function($provide) {
         }
     }]);
 
+    /**
+     * Chrome sync storage service for getting/setting settings.
+     */
     $provide.factory('storage', function() {
         return {
             save: function(key, value) {

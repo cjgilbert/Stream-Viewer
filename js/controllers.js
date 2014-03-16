@@ -1,4 +1,5 @@
 var streamViewer = angular.module('StreamViewer', ['streamViewer.services'])
+    // chrome-extension to be excluded from img sanitization.
     .config(['$compileProvider', function( $compileProvider ) {
         $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
     }
