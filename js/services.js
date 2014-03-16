@@ -2,7 +2,7 @@ angular.module('streamViewer.services', [], function($provide) {
     /**
      * Twitch service for returning lists of streams.
      */
-    $provide.factory('twitch', ['$http', '$q', function($http, $q){
+    $provide.factory('twitch', ['$http', function($http){
         return {
             getStreams: function(games, limit, offset, callback) {
                 var gameLimit = Math.floor(limit/games.length);
