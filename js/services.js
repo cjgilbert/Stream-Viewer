@@ -5,12 +5,11 @@ angular.module('streamViewer.services', [], function($provide) {
     $provide.factory('twitch', ['$http', '$q', function($http, $q){
         return {
             getStreams: function(games, limit, offset, callback) {
-                var streams = [];
-                var promises = [];
                 var gameLimit = Math.floor(limit/games.length);
                 offset = offset * gameLimit;
                 for (var i = 0; i < games.length; i++) {
-                    var promise = $http.get('https://api.twitch.tv/kraken/streams?game='+games[i]+'&limit='+gameLimit+'&offset='+offset)
+                    var streams = [];
+                    $http.get('https://api.twitch.tv/kraken/streams?game='+games[i]+'&limit='+gameLimit+'&offset='+offset)
                         .success(function(response) {
                             for (var j = 0; j < response.streams.length; j++) {
                                 streams.push({'name': response.streams[j].channel.name,
@@ -19,12 +18,9 @@ angular.module('streamViewer.services', [], function($provide) {
                                     'favorite': 0}
                                 );
                             }
+                            callback(streams);
                         });
-                    promises.push(promise);
                 }
-                $q.all(promises).then(function() {
-                    callback(streams);
-                });
             }
         }
     }]);
