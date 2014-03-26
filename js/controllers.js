@@ -30,8 +30,17 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
                     delete $scope.games[i];
                 }
             }
+            $scope.loadSubGames();
             $scope.loadStreams();
         });
+    };
+
+    $scope.loadSubGames = function() {
+        for (var i = 0; i < $scope.games.length; i++) {
+            if ($scope.subGames[$scope.games[i]]) {
+                $scope.games = _.union($scope.games, $scope.subGames[$scope.games[i]]);
+            }
+        }
     };
 
     $scope.toggleGame = function(val) {
@@ -54,9 +63,9 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
                 if (!$scope.streams) {
                     $scope.streams = [];
                 }
-                angular.forEach(response, function(responseVal, responseKey) {
+                angular.forEach(response, function(responseVal) {
                     var exists = false;
-                    angular.forEach($scope.streams, function(val, key) {
+                    angular.forEach($scope.streams, function(val) {
                         if (val.name === responseVal.name) {
                             exists = true;
                         }
@@ -81,7 +90,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
             if ($scope.favorites) {
                 for (var i = 0; i < $scope.streams.length; i++) {
                     if (1 === $scope.favorites[$scope.streams[i].name]) {
-                        $scope.$apply(function() {
+                        $scope.$apply(function(i) {
                             $scope.streams[i].favorite = 1;
                         });
                     }
@@ -127,6 +136,9 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
         'Titanfall',
         'World of Warcraft: Mists of Pandaria'
     ];
+    $scope.subGames = {
+        'Diablo III': ['Diablo III: Reaper of Souls']
+    };
     $scope.favorites = {};
     $scope.settings = false;
     $scope.width = 400;
@@ -134,6 +146,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.offset = 0;
     $scope.logos['Call of Duty: Ghosts'] = 'img/icon/cod-icon.png';
     $scope.logos['Diablo III'] = 'img/icon/diablo-icon.png';
+    $scope.logos['Diablo III: Reaper of Souls'] = 'img/icon/diablo-icon.png';
     $scope.logos['Hearthstone: Heroes of Warcraft'] = 'img/icon/hearthstone-icon.png';
     $scope.logos['League of Legends'] = 'img/icon/league-icon.png';
     $scope.logos['StarCraft II: Heart of the Swarm'] = 'img/icon/hots-icon.png';
