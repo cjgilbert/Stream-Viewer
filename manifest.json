@@ -1,6 +1,6 @@
 {
     "name": "Stream Viewer",
-    "version": "0.46",
+    "version": "0.47",
     "manifest_version": 2,
     "description": "Streams from multiple games in one place.",
     "browser_action": {

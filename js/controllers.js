@@ -90,7 +90,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
             if ($scope.favorites) {
                 for (var i = 0; i < $scope.streams.length; i++) {
                     if (1 === $scope.favorites[$scope.streams[i].name]) {
-                        $scope.$apply(function(i) {
+                        $scope.$apply(function() {
                             $scope.streams[i].favorite = 1;
                         });
                     }
