@@ -129,8 +129,10 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
         'Call of Duty: Ghosts',
         'Dark Souls II',
         'Diablo III',
+        'EVE Online',
         'Hearthstone: Heroes of Warcraft',
         'League of Legends',
+        'Magic: The Gathering',
         'StarCraft II: Heart of the Swarm',
         'The Elder Scrolls Online',
         'Titanfall',
@@ -147,8 +149,10 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.logos['Call of Duty: Ghosts'] = 'img/icon/cod-icon.png';
     $scope.logos['Diablo III'] = 'img/icon/diablo-icon.png';
     $scope.logos['Diablo III: Reaper of Souls'] = 'img/icon/diablo-icon.png';
+    $scope.logos['EVE Online'] = 'img/icon/eve-icon.png';
     $scope.logos['Hearthstone: Heroes of Warcraft'] = 'img/icon/hearthstone-icon.png';
     $scope.logos['League of Legends'] = 'img/icon/league-icon.png';
+    $scope.logos['Magic: The Gathering'] = 'img/icon/mtg-icon.png';
     $scope.logos['StarCraft II: Heart of the Swarm'] = 'img/icon/hots-icon.png';
     $scope.logos['The Elder Scrolls Online'] = 'img/icon/elderscrolls-icon.png';
     $scope.logos['World of Warcraft: Mists of Pandaria'] = '/img/icon/wow-icon.png';
