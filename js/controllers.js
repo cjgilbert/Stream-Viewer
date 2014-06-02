@@ -136,6 +136,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
         'StarCraft II: Heart of the Swarm',
         'The Elder Scrolls Online',
         'Titanfall',
+        'WildStar',
         'World of Warcraft: Mists of Pandaria'
     ];
     $scope.subGames = {
@@ -158,6 +159,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.logos['World of Warcraft: Mists of Pandaria'] = '/img/icon/wow-icon.png';
     $scope.logos['Titanfall'] = '/img/icon/titanfall-icon.png';
     $scope.logos['Dark Souls II'] = '/img/icon/ds2-icon.png';
+    $scope.logos['WildStar'] = '/img/icon/wildstar-icon.png';
     $scope.logos['Unknown'] = '/img/icon/twitch-icon.png';
     $scope.games = [];
     $scope.loadGames();
