@@ -138,7 +138,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
         'The Elder Scrolls Online',
         'Titanfall',
         'WildStar',
-        'World of Warcraft: Mists of Pandaria'
+        'World of Warcraft: Warlords of Draenor'
     ];
     $scope.subGames = {
         'Diablo III': ['Diablo III: Reaper of Souls']
@@ -158,7 +158,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.logos['Magic: The Gathering'] = 'img/icon/mtg-icon.png';
     $scope.logos['StarCraft II: Heart of the Swarm'] = 'img/icon/hots-icon.png';
     $scope.logos['The Elder Scrolls Online'] = 'img/icon/elderscrolls-icon.png';
-    $scope.logos['World of Warcraft: Mists of Pandaria'] = '/img/icon/wow-icon.png';
+    $scope.logos['World of Warcraft: Warlords of Draenor'] = '/img/icon/wow-icon.png';
     $scope.logos['Titanfall'] = '/img/icon/titanfall-icon.png';
     $scope.logos['Dark Souls II'] = '/img/icon/ds2-icon.png';
     $scope.logos['WildStar'] = '/img/icon/wildstar-icon.png';
