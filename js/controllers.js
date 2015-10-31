@@ -134,7 +134,8 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
         'Hearthstone: Heroes of Warcraft',
         'League of Legends',
         'Magic: The Gathering',
-        'StarCraft II: Heart of the Swarm',
+        'Overwatch',
+        'StarCraft II: Legacy of the Void',
         'The Elder Scrolls Online',
         'Titanfall',
         'WildStar',
@@ -156,6 +157,7 @@ streamViewer.controller('StreamListCtrl', ['$scope', 'twitch', 'storage', '$time
     $scope.logos['Hearthstone: Heroes of Warcraft'] = 'img/icon/hearthstone-icon.png';
     $scope.logos['League of Legends'] = 'img/icon/league-icon.png';
     $scope.logos['Magic: The Gathering'] = 'img/icon/mtg-icon.png';
+    $scope.logos['Overwatch'] = 'img/icon/overwatch-icon.png';
     $scope.logos['StarCraft II: Heart of the Swarm'] = 'img/icon/hots-icon.png';
     $scope.logos['The Elder Scrolls Online'] = 'img/icon/elderscrolls-icon.png';
     $scope.logos['World of Warcraft: Warlords of Draenor'] = '/img/icon/wow-icon.png';
