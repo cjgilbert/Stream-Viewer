@@ -25,7 +25,7 @@
                         <span class="glyphicon fav-icon" ng-class="{1: 'glyphicon-star', 0: 'glyphicon-star-empty'}[stream.favorite]" ></span>
                     </td>
                     <td class="icon-col"><img ng-src="{{getLogo(stream.game)}}" class="game-logo" /></td>
-                    <td class="name-col"><a ng-href="http://www.twitch.tv/{{stream.name}}/popout" title="http://www.twitch.tv/{{stream.name}}/popout" target="_blank">{{stream.name}}</a></td>
+                    <td class="name-col"><a ng-href="http://player.twitch.tv?channel={{stream.name}}" title="http://player.twitch.tv?channel={{stream.name}}" target="_blank">{{stream.name}}</a></td>
                     <td class="viewer-col">{{stream.viewers}}</td>
                 </tr>
             </table>
