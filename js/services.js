@@ -8,7 +8,7 @@ angular.module('streamViewer.services', [], function($provide) {
                 var gameLimit = Math.floor(limit/games.length);
                 offset = offset * gameLimit;
                 for (var i = 0; i < games.length; i++) {
-                    $http.get('https://api.twitch.tv/kraken/streams?game='+games[i]+'&limit='+gameLimit+'&offset='+offset)
+                    $http.get('https://api.twitch.tv/kraken/streams?client_id=afcsscnpkjvfi3nwmmkaj9b1lu3312t&game='+games[i]+'&limit='+gameLimit+'&offset='+offset)
                         .success(function(response) {
                             var streams = [];
                             for (var j = 0; j < response.streams.length; j++) {
